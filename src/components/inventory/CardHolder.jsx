@@ -40,25 +40,27 @@ function CardHolder({ listingType, listingDesc, filter }){
 
     return(
         
-        <section className="p-4">
-            { isLoading ? (
-                <h1>Loading...</h1>
-            ) : (
-                <>
-                    <div className="flex justify-between mb-4">
-                        <div>
-                            <h1 className="font-semibold text-2xl">{listingType}</h1>
-                            <span className="text-gray-500 text-sm">{listingDesc}</span>
+        <section className="p-4 w-[100%dvw] flex justify-center">
+            <div className="max-w-[1336px]">
+                { isLoading ? (
+                    <h1>Loading...</h1>
+                ) : (
+                    <>
+                        <div className="flex justify-between mb-4">
+                            <div>
+                                <h1 className="font-semibold text-2xl">{listingType}</h1>
+                                <span className="text-gray-500 text-sm">{listingDesc}</span>
+                            </div>
+                            <div>
+                                <button className="border border-gray-400/50 p-3 active:bg-black/65 text-sm rounded-md cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out" onClick={navigateToCars}>View All<i className="fa-solid fa-arrow-right ml-3"></i></button>
+                            </div>
                         </div>
-                        <div>
-                            <button className="border border-gray-400/50 p-3 active:bg-black/65 text-sm rounded-md cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out" onClick={navigateToCars}>View All<i className="fa-solid fa-arrow-right ml-3"></i></button>
-                        </div>
-                    </div>
-                    <section className="md:grid md:grid-cols-3 md:gap-2">
-                        { !listings.length ? (<h1>{listingType} listing not available</h1>) : (listings.map((list) => (<CarCard key={list._id} thumbnail={list.images[0]} brand={list.brand} model={list.model} price={list.price} variant={list.variant} id={list._id} year={list.year} />)))}
-                    </section>
-                </>
-            )}
+                        <section className="md:grid md:grid-cols-3 md:gap-2">
+                            { !listings.length ? (<h1>{listingType} listing not available</h1>) : (listings.map((list) => (<CarCard key={list._id} thumbnail={list.images[0]} brand={list.brand} model={list.model} price={list.price} variant={list.variant} id={list._id} year={list.year} />)))}
+                        </section>
+                    </>
+                )}
+            </div>
         </section>
     )
 }

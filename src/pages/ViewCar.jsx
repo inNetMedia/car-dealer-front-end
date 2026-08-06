@@ -65,80 +65,82 @@ function ViewCar(){
     }
 
     return(
-        <main className='p-5 flex-1'>
-            { viewFull && (<div className='bg-black fixed top-0 bottom-0 right-0 left-0 z-100 flex items-center justify-center'>
-                <i onClick={() => setViewFull(false)} className="cursor-pointer fa-solid fa-xmark absolute top-3 text-white text-5xl right-5"></i>
-                <i onClick={() => scrollFullView('decending')} className="fa-solid fa-chevron-left text-white absolute text-6xl left-5 cursor-pointer"></i>
-                <img src={viewImage}/>
-                <i onClick={() => scrollFullView('acending')} className="fa-solid fa-chevron-right text-white absolute right-5 text-6xl cursor-pointer"></i>
-            </div>)}
+        <main className='p-5 flex w-[100%] justify-center items-center'>
+            <div className='max-w-[1336px]'>
+                { viewFull && (<div className='bg-black fixed top-0 bottom-0 right-0 left-0 z-100 flex items-center justify-center'>
+                    <i onClick={() => setViewFull(false)} className="cursor-pointer fa-solid fa-xmark absolute top-3 text-white text-5xl right-5"></i>
+                    <i onClick={() => scrollFullView('decending')} className="fa-solid fa-chevron-left text-white absolute text-6xl left-5 cursor-pointer"></i>
+                    <img src={viewImage}/>
+                    <i onClick={() => scrollFullView('acending')} className="fa-solid fa-chevron-right text-white absolute right-5 text-6xl cursor-pointer"></i>
+                </div>)}
 
-            { showLogIn && (<LogReg />)}
-            <button onClick={handleBack} className='mb-8 cursor-pointer'>
-                <i className="fa-solid fa-arrow-left mr-3"></i>Back 
-            </button>
-            { isLoading ? (<h1>Loading...</h1>) : 
-                <div className='flex md:flex-row flex-col md:items-center md:gap-4'>
-                    <div className='md:flex md:flex-col md:flex-[60%]'>
-                        <div className='mb-5'>
-                            <img onClick={() => setViewFull(true)} src={viewImage} className='rounded-md object-cover cursor-pointer'/>
-                        </div>
-                        <div className='flex gap-1 [&_img]:rounded-md mb-2 overflow-auto'>
-                            { carListing.images.map((image) => (<img onClick={() => setViewImage(image)} className='size-20 object-cover cursor-pointer' src={image} />))}
-                        </div>
-                    </div>
-
-                    <section className='md:flex md:flex-col md:flex-[40%]'>
-                        <div>
-                            <h1 className='font-bold text-xl'>R {carListing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h1>
-                            <h1 className='font-bold text-xl'>{carListing.year} {carListing.brand} {carListing.model} {carListing.variant}</h1>
-                            <span>2.0TSI 140kW 4Motion Design</span>
-                        </div>
-
-                        <div className='[&_span]:text-gray-600 bg-white rounded-md p-4 mt-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]'>
-                            <h2><i className="fa-solid fa-car-side"></i> Key Specifications</h2>
-                            <div className='text-xs mt-5 grid grid-cols-2 gap-4'>
-                                <div>
-                                    <i className="fa-solid fa-gauge-high mr-1"></i>
-                                    <span>Mileage</span>
-                                    <h2 className='font-bold'>{carListing.mileage} km</h2>
-                                </div>
-                                <div>
-                                    <i className="fa-solid fa-gas-pump"></i>
-                                    <span> Fuel Type</span>
-                                    <h2 className='font-bold'>{carListing.specs.engine.fuelType}</h2>
-                                </div>
-                                <div>
-                                    <i className="fa-solid fa-gears"></i>
-                                    <span> Transmission</span>
-                                    <h2 className='font-bold'>{carListing.specs.transmission}</h2>
-                                </div>
-                                <div>
-                                    <i className="fa-regular fa-calendar"></i>
-                                    <span> Year</span>
-                                    <h2 className='font-bold'>{carListing.year}</h2>
-                                </div>
+                { showLogIn && (<LogReg />)}
+                <button onClick={handleBack} className='mb-8 cursor-pointer'>
+                    <i className="fa-solid fa-arrow-left mr-3"></i>Back 
+                </button>
+                { isLoading ? (<h1>Loading...</h1>) : 
+                    <div className='flex md:flex-row flex-col md:items-center md:gap-4'>
+                        <div className='md:flex md:flex-col md:flex-[60%]'>
+                            <div className='mb-5'>
+                                <img onClick={() => setViewFull(true)} src={viewImage} className='rounded-md object-cover cursor-pointer'/>
+                            </div>
+                            <div className='flex gap-1 [&_img]:rounded-md mb-2 overflow-auto'>
+                                { carListing.images.map((image) => (<img onClick={() => setViewImage(image)} className='size-20 object-cover cursor-pointer' src={image} />))}
                             </div>
                         </div>
 
-                        <div className='bg-white rounded-md p-4 mt-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]'>
-                            <h1 className='font-bold'>Description</h1>
-                            <p className='text-sm text-gray-600'>{carListing.description}</p>
-                            <h1 className="font-bold mt-5">Features</h1>
-                            <ul className="grid grid-cols-2 list-disc list-inside space-y-1 [&_li]:text-xs">
-                                <li>Twin-Turbo</li>
-                                <li>Carbon-Fiber Roof</li>
-                                <li>19' Alloy Wheels</li>
-                                <li>Leather Seats</li>
-                            </ul>
-                        </div>
-                        <div className='flex flex-col mt-5'>
-                            <button className='bg-black text-white p-1 rounded-md mb-2 cursor-pointer'><i className="fa-solid fa-phone"></i> Call</button>
-                            <button className='p-1 bg-green-400 rounded-md cursor-pointer'><i className="fa-brands fa-whatsapp"></i> WhatsApp</button>
-                        </div>
-                    </section>
-                </div>
-           }
+                        <section className='md:flex md:flex-col md:flex-[40%]'>
+                            <div>
+                                <h1 className='font-bold text-xl'>R {carListing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h1>
+                                <h1 className='font-bold text-xl'>{carListing.year} {carListing.brand} {carListing.model} {carListing.variant}</h1>
+                                <span>2.0TSI 140kW 4Motion Design</span>
+                            </div>
+
+                            <div className='[&_span]:text-gray-600 bg-white rounded-md p-4 mt-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]'>
+                                <h2><i className="fa-solid fa-car-side"></i> Key Specifications</h2>
+                                <div className='text-xs mt-5 grid grid-cols-2 gap-4'>
+                                    <div>
+                                        <i className="fa-solid fa-gauge-high mr-1"></i>
+                                        <span>Mileage</span>
+                                        <h2 className='font-bold'>{carListing.mileage} km</h2>
+                                    </div>
+                                    <div>
+                                        <i className="fa-solid fa-gas-pump"></i>
+                                        <span> Fuel Type</span>
+                                        <h2 className='font-bold'>{carListing.specs.engine.fuelType}</h2>
+                                    </div>
+                                    <div>
+                                        <i className="fa-solid fa-gears"></i>
+                                        <span> Transmission</span>
+                                        <h2 className='font-bold'>{carListing.specs.transmission}</h2>
+                                    </div>
+                                    <div>
+                                        <i className="fa-regular fa-calendar"></i>
+                                        <span> Year</span>
+                                        <h2 className='font-bold'>{carListing.year}</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='bg-white rounded-md p-4 mt-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]'>
+                                <h1 className='font-bold'>Description</h1>
+                                <p className='text-sm text-gray-600'>{carListing.description}</p>
+                                <h1 className="font-bold mt-5">Features</h1>
+                                <ul className="grid grid-cols-2 list-disc list-inside space-y-1 [&_li]:text-xs">
+                                    <li>Twin-Turbo</li>
+                                    <li>Carbon-Fiber Roof</li>
+                                    <li>19' Alloy Wheels</li>
+                                    <li>Leather Seats</li>
+                                </ul>
+                            </div>
+                            <div className='flex flex-col mt-5'>
+                                <button className='bg-black text-white p-1 rounded-md mb-2 cursor-pointer'><i className="fa-solid fa-phone"></i> Call</button>
+                                <button className='p-1 bg-green-400 rounded-md cursor-pointer'><i className="fa-brands fa-whatsapp"></i> WhatsApp</button>
+                            </div>
+                        </section>
+                    </div>
+            }
+           </div>
         </main>
     )
 }

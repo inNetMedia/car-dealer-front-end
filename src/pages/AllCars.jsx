@@ -100,7 +100,7 @@ function AllCars(){
     }
 
     return(
-        <>
+        <section>
             { showLogIn && (<LogReg />)}
             <div className="bg-black text-white p-8 flex-1">
                 <h1 className="font-bold text-4xl mb-5">Our Fleet</h1>
@@ -123,28 +123,29 @@ function AllCars(){
                 </div>
             </div>
 
+            <div className="w-[100%dvw] flex justify-center items-center flex-col">
+                <div className="m-5 p-3 items-center inline border border-gray-400/50 w-full max-w-[1336px]">
+                    <i className="fa-solid fa-sliders mr-2"></i>
+                    <select onChange={(e) => handleSetFilter(e.target.value)} name="Sort">
+                        <option disabled>Filter results</option>
+                        <option value="dyear">Newest First</option>
+                        <option value="year">Oldest</option>
+                        <option value="mileage">Least Milage</option>
+                        <option value="dmileage">Most Mileage</option>
+                        <option value="price">Price Low to High</option>
+                        <option value="dprice">Price High to Low</option>
+                    </select>
+                </div>
+                
+                <div className=" w-[100%] flex flex-wrap md:flex  justify-start [&_span]:text-center [&_span]: mt-10 [&_span]:mr-6   pl-5 [&_span]:bg-gray- [&_span]:px-3 [&_span]:cursor-pointer max-w-[1336px]">
+                    { filterOptions.map((filter) => (<span className="mb-5" key={filter.type} onClick={() => handleSetFilter(filter.type)} style={ filter.selected ? {backgroundColor: 'black', color: 'white', borderRadius: '5px' } : { backgroundColor:'transparent', color: 'black'}}>{filter.type}</span>)) }
+                </div>
 
-            <div className="m-5 p-3 items-center inline border border-gray-400/50">
-                <i className="fa-solid fa-sliders mr-2"></i>
-                <select onChange={(e) => handleSetFilter(e.target.value)} name="Sort">
-                    <option disabled>Filter results</option>
-                    <option value="dyear">Newest First</option>
-                    <option value="year">Oldest</option>
-                    <option value="mileage">Least Milage</option>
-                    <option value="dmileage">Most Mileage</option>
-                    <option value="price">Price Low to High</option>
-                    <option value="dprice">Price High to Low</option>
-                </select>
+                <main style={ !carListings.length ? { display: 'flex'} : { display: 'grid' }} className="p-5 md:grid md:grid-cols-3 md:gap-5 w-full items-center max-w-[1336px]">
+                    { !carListings.length ? (<h1 className="text-center font-bold text-3xl my-15">Listings not found</h1>) : carListings.map((list) => (<CarCard key={list._id} brand={list.brand} price={list.price} variant={list.variant} year={list.year} model={list.model} thumbnail={list.images[0]} id={list._id} />))}
+                </main>
             </div>
-            
-            <div className="flex [&_span]:text-center [&_span]: mt-10 [&_span]:mr-6  w-[91%] pl-5 [&_span]:bg-gray- [&_span]:px-3 [&_span]:cursor-pointer">
-                { filterOptions.map((filter) => (<span key={filter.type} onClick={() => handleSetFilter(filter.type)} style={ filter.selected ? {backgroundColor: 'black', color: 'white', borderRadius: '5px' } : { backgroundColor:'transparent', color: 'black'}}>{filter.type}</span>)) }
-            </div>
-
-            <main style={ !carListings.length ? { display: 'flex'} : { display: 'grid' }} className="p-5 md:grid md:grid-cols-3 md:gap-5 w-full items-center">
-                { !carListings.length ? (<h1 className="text-center font-bold text-3xl my-15">Listings not found</h1>) : carListings.map((list) => (<CarCard key={list._id} brand={list.brand} price={list.price} variant={list.variant} year={list.year} model={list.model} thumbnail={list.images[0]} id={list._id} />))}
-            </main>
-        </>
+        </section>
     )
 }
 
