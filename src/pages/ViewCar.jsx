@@ -104,12 +104,12 @@ function ViewCar(){
                                     <h2 className='font-bold'>{carListing.mileage} km</h2>
                                 </div>
                                 <div>
-                                    <i class="fa-solid fa-gas-pump"></i>
+                                    <i className="fa-solid fa-gas-pump"></i>
                                     <span> Fuel Type</span>
                                     <h2 className='font-bold'>{carListing.specs.engine.fuelType}</h2>
                                 </div>
                                 <div>
-                                    <i class="fa-solid fa-gears"></i>
+                                    <i className="fa-solid fa-gears"></i>
                                     <span> Transmission</span>
                                     <h2 className='font-bold'>{carListing.specs.transmission}</h2>
                                 </div>

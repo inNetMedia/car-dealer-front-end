@@ -5,6 +5,28 @@ function WishList(){
     const [userId, setUserId] = useState(localStorage.getItem('id'))
     const [wishList, setWishList] = useState([])
 
+    useEffect(() => {
+        const getWishList = async () => {
+            try{
+                const response = await fetch(`http://localhost:3500/user/wishlist/${localStorage.getItem('id')}`, {
+                    credentials: 'include'
+                })
+                if(response.ok){
+                    const jsonData = await response.json()
+                    setWishList(jsonData)
+                }
+
+            }catch(err){
+
+            }
+        }
+
+        if(localStorage.getItem('id')){
+            getWishList()
+        }
+
+    },[])
+
     return(
         <main className="flex-1">
             {
