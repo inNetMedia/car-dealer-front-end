@@ -3,9 +3,9 @@ import apiRequest from '../../api/apiRequest'
 import { DataContext } from '../../context/DataContext'
 import { useContext } from 'react'
 
-function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, setShowForm, refreshListings, category, mileage, transmission }){
+function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, setShowForm, refreshListings, category, mileage, transmission, setListingId }){
     const [ listToDel, setListToDel ] = useState()
-    const { windowSize, showNav, changeListState, showLogIn } = useContext(DataContext)
+    const { windowSize, showNav, changeListState, showLogIn, setShowEditListing } = useContext(DataContext)
     const width = windowSize?.width ?? 0
 
     const handleDeleteListing = async () => {
@@ -64,7 +64,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
             
             <div className='flex justify-start items-center text-lg md:text-1xl flex-[20%]'>
                 { !sold ? (<i onClick={handleSellCar} className="fa-regular fa-calendar-check"></i>) : (<i onClick={handleSellCar} className="fa-solid fa-arrow-rotate-left"></i>)}
-                <i className="fa-regular fa-pen-to-square m-4 md:mx-8"></i>
+                <i onClick={() => { setShowEditListing(true); setListingId(id) }} className="fa-regular fa-pen-to-square m-4 md:mx-8"></i>
                 <i onClick={handleDeleteListing} className="fa-regular fa-trash-can text-red-500"></i>
             </div>
 

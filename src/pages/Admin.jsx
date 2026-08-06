@@ -4,9 +4,10 @@ import AddCar from "../components/inventory/AddCar"
 import { DataContext } from "../context/DataContext"
 import { useContext } from "react"
 import LogReg from "../components/inventory/LogReg"
+import EditListing from '../components/ui/EditListing'
 
 function Admin(){
-    const { windowSize, showNav, changeListState, showLogIn } = useContext(DataContext)
+    const { windowSize, showNav, changeListState, showLogIn,  showEditListing,  setShowEditListing } = useContext(DataContext)
     const width = windowSize?.width ?? 0
 
     const [showForm, setShowForm] = useState(false)
@@ -72,6 +73,7 @@ function Admin(){
         <main className="flex-1">
             { showLogIn && (<LogReg />)}
             { showForm && (<AddCar setShowForm={setShowForm} isUpdating={isUpdating} listingId={listingId} />) }
+            { showEditListing && (<EditListing listingId={listingId} />)}
 
             <div className="bg-black p-5">
                 <h1 className="text-white font-bold text-2xl">Admin Dashboard</h1>
@@ -132,7 +134,48 @@ function Admin(){
                     <div className="flex justify-start ml-25 flex-[20%]">Actions</div>
                 </div> */}
                 
-                { (showSold && soldListings.length) ? soldListings.map((list) => (<AdminList key={list._id} brand={list.brand} price={list.price} year={list.year} model={list.model} variant={list.variant} thumbnail={list.images[0]} id={list._id} sold={list.sold} refreshListings={refreshListings} category={list.category} mileage={list.mileage} transmission={list.transmission} />)) : (!showSold && carListings.length) ? carListings.map((list) => (<AdminList key={list._id} brand={list.brand} price={list.price} year={list.year} model={list.model} variant={list.variant} thumbnail={list.images[0]} id={list._id} sold={list.sold} refreshListings={refreshListings} setShowForm={setShowForm} setIsUpdating={setIsUpdating} setListingId={setListingId} category={list.category} mileage={list.mileage} transmission={list.specs.transmission} />)) : (<h1 className="text-center font-semibold py-10">No Listing</h1>)  }
+                { (showSold && soldListings.length) ? 
+                    soldListings.map((list) => (
+                        <AdminList 
+                        key={list._id}
+                        brand={list.brand}
+                        price={list.price} 
+                        year={list.year} 
+                        model={list.model} 
+                        variant={list.variant} 
+                        thumbnail={list.images[0]} 
+                        id={list._id} 
+                        sold={list.sold} 
+                        refreshListings={refreshListings} 
+                        setListingId={setListingId}
+                        category={list.category}
+                        mileage={list.mileage} 
+                        transmission={list.transmission}/>)
+                    ) :
+
+                    (!showSold && carListings.length) ? carListings.map((list) => (
+                        <AdminList 
+                        key={list._id} 
+                        brand={list.brand} 
+                        price={list.price} 
+                        year={list.year} 
+                        model={list.model} 
+                        variant={list.variant} 
+                        thumbnail={list.images[0]} 
+                        id={list._id} 
+                        sold={list.sold} 
+                        setListingId={setListingId}
+                        refreshListings={refreshListings} 
+                        setShowForm={setShowForm} 
+                        setIsUpdating={setIsUpdating} 
+                        setListingId={setListingId} 
+                        category={list.category} 
+                        mileage={list.mileage} 
+                        transmission={list.specs.transmission} 
+                        />)
+                    ) : 
+
+                    (<h1 className="text-center font-semibold py-10">No Listing</h1>)  }
 
             </section>
 

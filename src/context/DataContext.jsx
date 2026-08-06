@@ -17,6 +17,7 @@ export const DataProvider = ({ children }) => {
     const [isAdmin, setIsAdmin] = useState(true)
     const [isProfileView, setIsProfileView] = useState(false)
     const [showProfile, setShowProfile] = useState(false)
+    const [showEditListing, setShowEditListing] = useState(false)
 
     function handleShowNavigation(){
         setShowNav(!showNav)
@@ -37,7 +38,8 @@ export const DataProvider = ({ children }) => {
             showLogIn, setShowLogIn, reqError,
             setReqError, setIsLoggedIn, setIsAdmin,
             setIsProfileView, isProfileView, isAdmin,
-            setShowProfile, showProfile
+            setShowProfile, showProfile, showEditListing,
+            setShowEditListing
         }}>
             {children}
         </DataContext.Provider>
