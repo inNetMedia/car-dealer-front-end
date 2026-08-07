@@ -1,9 +1,9 @@
 import { useContext } from "react"
 import { DataContext } from "../context/DataContext"
 import LogReg from "../components/inventory/LogReg"
-import officeImg from '../assets/pexels-fatih-guney-337108406-18070140.jpg'
-import mercedesImg from '../assets/pexels-krislucas90-3264504.jpg'
-import carBack from '../assets/pexels-hamza01nsr-8586689.jpg'
+import officeImg from '/pexels-fatih-guney-337108406-18070140.jpg'
+import mercedesImg from '/pexels-krislucas90-3264504.jpg'
+import carBack from '/pexels-hamza01nsr-8586689.jpg'
 
 function About(){
     const { showLogIn } = useContext(DataContext)
@@ -12,7 +12,7 @@ function About(){
     return(
         <section className="flex-1">
             { showLogIn && (<LogReg />)}
-            <section className="flex justify-end items-start flex-col text-white bg-[url('src/assets/conor-samuel-aIbR-deTiWY-unsplash.jpg')] bg-cover bg-center h-140 w-full">
+            <section className="flex justify-end items-start flex-col text-white bg-[url('/conor-samuel-aIbR-deTiWY-unsplash.jpg')] bg-cover bg-center h-140 w-full">
                 <div className="w-full bg-black/40">
                     <div className="p-5 flex justify-center">
                         <div className="max-w-[1336px] w-full">

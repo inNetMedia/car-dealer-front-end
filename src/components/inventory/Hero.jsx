@@ -26,7 +26,7 @@ function Hero(){
     },[query])
 
     return(
-       <div className="bg-[url('src/assets/blake-meyer-CRNbHjNaljo-unsplash.jpg')] bg-cover bg-center h-130 w-full">
+       <div className="bg-[url('/blake-meyer-CRNbHjNaljo-unsplash.jpg')] bg-cover bg-center h-130 w-full">
             <div className="w-full h-full text-white flex flex-col items-center justify-center text-center bg-black/15">
                 <h1 className="text-4xl font-bold m-4">Drive Your Dreams</h1>
                 <p>Discover the finest collection of luxury and perfomance vehicles</p>

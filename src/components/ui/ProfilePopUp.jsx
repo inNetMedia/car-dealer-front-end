@@ -13,7 +13,7 @@ const ProfilePopUp = () => {
     const handleLogout = async () => {  
         console.log(email)
         try{
-            const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/user/logout`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/logout`, {
                 credentials: 'include'
             })
             console.log(response)

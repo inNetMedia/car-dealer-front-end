@@ -24,7 +24,7 @@ function Register(){
         }
 
         setError(null)
-        const regReq = await apiRequest(`https://car-dealer-api-2ie4.onrender.com/user/register`, {
+        const regReq = await apiRequest(`${import.meta.env.VITE_API_URL}/user/register`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
