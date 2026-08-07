@@ -12,7 +12,7 @@ function CardHolder({ listingType, listingDesc, filter }){
     useEffect(() => {
         const getCarListings = async () => {
             try{
-                const response = await fetch('http://localhost:3500/api/car', { credentials: 'include'})
+                const response = await fetch('https://car-dealer-api-2ie4.onrender.com/api/car', { credentials: 'include'})
                 const data = await response.json()
                 if(response.ok){
                     const tempArr = []
@@ -41,7 +41,7 @@ function CardHolder({ listingType, listingDesc, filter }){
     return(
         
         <section className="p-4 w-[100%dvw] flex justify-center">
-            <div className="max-w-[1336px]">
+            <div className="max-w-[1336px] w-full">
                 { isLoading ? (
                     <h1>Loading...</h1>
                 ) : (

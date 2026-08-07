@@ -38,7 +38,7 @@ function EditListing({ setShowForm, listingId }){
     useEffect(() => {
         const getListing = async () => {
             try{
-                const response = await fetch(`http://localhost:3500/api/car/${listingId}`)
+                const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/api/car/${listingId}`)
                 if(response.ok){
                     const jsonData = await response.json()
                     console.log(jsonData)
@@ -57,7 +57,7 @@ function EditListing({ setShowForm, listingId }){
     const updateListing = async (e) => {
         e.preventDefault()
         setIsLoading(true)
-        const response = await apiRequest(`http://localhost:3500/admin/api/car/${listingId}/update`, {
+        const response = await apiRequest(`https://car-dealer-api-2ie4.onrender.com/admin/api/car/${listingId}/update`, {
                         method:'PUT',
                         credentials:'include',
                         headers: {

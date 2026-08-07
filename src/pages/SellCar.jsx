@@ -19,7 +19,7 @@ function SellCar(){
     const submitOffer = async (e) => {
         e.preventDefault()
         try{
-            const response = await fetch('http://localhost:3500/user/sell', {
+            const response = await fetch('https://car-dealer-api-2ie4.onrender.com/user/sell', {
                 method:'POST',
                 credentials: 'include',
                 headers: {

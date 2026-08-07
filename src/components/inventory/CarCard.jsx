@@ -9,7 +9,7 @@ function CarCard({ brand, variant, model, year, price, thumbnail, id }){
         e.stopPropagation()
         if(isFavourite === false){    
             try{
-                const response = await fetch(`http://localhost:3500/user/wishlist`, {
+                const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/user/wishlist`, {
                     method:'POST',
                     credentials: 'include',
                     headers: {
@@ -24,7 +24,7 @@ function CarCard({ brand, variant, model, year, price, thumbnail, id }){
             }
         }else{
             try{
-                const response = await fetch(`http://localhost:3500/user/removewish`, {
+                const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/user/removewish`, {
                     credentials: 'include',
                     method: 'PUT',
                     headers: {
@@ -43,7 +43,7 @@ function CarCard({ brand, variant, model, year, price, thumbnail, id }){
     useEffect(() => {
         const checkFavourite = async () => {
             try{
-                const response = await fetch(`http://localhost:3500/user/wishlist/${localStorage.getItem('id')}`, {
+                const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/user/wishlist/${localStorage.getItem('id')}`, {
                     credentials: 'include'
                 })
                 const json = await response.json()

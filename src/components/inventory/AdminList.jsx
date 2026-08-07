@@ -9,7 +9,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
     const width = windowSize?.width ?? 0
 
     const handleDeleteListing = async () => {
-        const url = `http://localhost:3500/admin/api/car`
+        const url = `https://car-dealer-api-2ie4.onrender.com/admin/api/car`
         const optionsObj = {
             method: 'DELETE',
             credentials: 'include',
@@ -23,7 +23,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
     }
 
     const handleSellCar = async () => {
-        const url = `http://localhost:3500/admin/api/car/${id}/mark-sold`
+        const url = `https://car-dealer-api-2ie4.onrender.com/admin/api/car/${id}/mark-sold`
         const optionsObj = {
             method: 'PUT',
             credentials: 'include',
@@ -40,7 +40,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
             <div className='flex flex-[40%] items-center md:mr-10'>
                 <div className='flex mr-2'><img className='max-h-14 object-cover' src={thumbnail} /></div>
                 <div className='flex flex-[10%]'>
-                    <h1 className='font-semibold md:font-semibold text-xs md:text-lg'>{year} {brand} {model} {variant}</h1>
+                    <h1 className='font- md:font-semibold text-xs md:text-lg'>{brand} {model} {variant}</h1>
                 </div>
             </div>
             { width > 768 && (<>
@@ -58,7 +58,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
 
             </>) }
 
-            <div className='flex flex-[20%]  items-center font-semibold'>
+            <div className='flex flex-[20%]  items-center font-semibold text-'>
                 R {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
             </div>
             

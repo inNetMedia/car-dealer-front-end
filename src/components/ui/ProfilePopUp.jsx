@@ -13,7 +13,7 @@ const ProfilePopUp = () => {
     const handleLogout = async () => {  
         console.log(email)
         try{
-            const response = await fetch(`http://localhost:3500/user/logout`, {
+            const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/user/logout`, {
                 credentials: 'include'
             })
             console.log(response)

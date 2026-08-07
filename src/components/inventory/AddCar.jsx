@@ -45,7 +45,7 @@ function AddCar({ setShowForm }){
         }
         const sendAllData = async (payload) => {
             try{
-                const response = await fetch('http://localhost:3500/admin/api/car', {
+                const response = await fetch('https://car-dealer-api-2ie4.onrender.com/admin/api/car', {
                     method: 'POST',
                     credentials: 'include',
                     headers: {
@@ -65,7 +65,7 @@ function AddCar({ setShowForm }){
         const uploadFiles = async () => {
             try{
                 setIsLoading(true)
-                const response = await fetch('http://localhost:3500/admin/api/upload', {
+                const response = await fetch('https://car-dealer-api-2ie4.onrender.com/admin/api/upload', {
                     method: 'POST',
                     credentials: 'include',
                     body: formData

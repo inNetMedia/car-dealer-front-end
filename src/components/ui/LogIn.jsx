@@ -21,7 +21,7 @@ function LogIn(){
     const logInUser = async (e) => {
         e.preventDefault()
         console.log('Is authorizing')
-        const API_URL = `http://localhost:3500/user/auth`
+        const API_URL = `https://car-dealer-api-2ie4.onrender.com/user/auth`
 
         const logReq = await apiRequest(API_URL, {
                         method: 'POST',
