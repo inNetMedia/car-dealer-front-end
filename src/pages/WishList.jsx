@@ -14,7 +14,7 @@ function WishList(){
     useEffect(() => {
         const getWishList = async () => {
             try{
-                const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/user/wishlist/${localStorage.getItem('id')}`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/user/wishlist/${localStorage.getItem('id')}`, {
                     credentials: 'include'
                 })
                 if(response.ok){

@@ -9,7 +9,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
     const width = windowSize?.width ?? 0
 
     const handleDeleteListing = async () => {
-        const url = `https://car-dealer-api-2ie4.onrender.com/admin/api/car`
+        const url = `${import.meta.env.VITE_API_URL}/admin/api/car`
         const optionsObj = {
             method: 'DELETE',
             credentials: 'include',
@@ -23,7 +23,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
     }
 
     const handleSellCar = async () => {
-        const url = `https://car-dealer-api-2ie4.onrender.com/admin/api/car/${id}/mark-sold`
+        const url = `${import.meta.env.VITE_API_URL}/admin/api/car/${id}/mark-sold`
         const optionsObj = {
             method: 'PUT',
             credentials: 'include',

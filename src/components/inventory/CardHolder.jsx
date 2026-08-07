@@ -12,7 +12,7 @@ function CardHolder({ listingType, listingDesc, filter }){
     useEffect(() => {
         const getCarListings = async () => {
             try{
-                const response = await fetch('https://car-dealer-api-2ie4.onrender.com/api/car', { credentials: 'include'})
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/car`, { credentials: 'include'})
                 const data = await response.json()
                 if(response.ok){
                     const tempArr = []

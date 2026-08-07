@@ -42,7 +42,7 @@ function Admin(){
     useEffect(() => {
         const getListings = async () => {
             try{
-                const response = await fetch('https://car-dealer-api-2ie4.onrender.com/admin/api/car', {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/admin/api/car`, {
                     credentials: 'include'
                 })
                 const data = await response.json()
@@ -55,7 +55,7 @@ function Admin(){
 
         const getSoldListings = async () => {
             try{
-                const response = await fetch('https://car-dealer-api-2ie4.onrender.com/admin/api/car/sold',{
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/admin/api/car/sold`,{
                     credentials: 'include'
                 })
                 const data = await response.json()

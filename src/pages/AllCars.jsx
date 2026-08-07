@@ -7,7 +7,7 @@ import LogReg from "../components/inventory/LogReg"
 function AllCars(){
     const { showLogIn } = useContext(DataContext)
     const [carListings, setCarListings] = useState([])
-    const [filterURL, setFilterURL] = useState('https://car-dealer-api-2ie4.onrender.com/api/car/filter?q=all')
+    const [filterURL, setFilterURL] = useState(`${import.meta.env.VITE_API_URL}/api/car/filter?q=all`)
     const [filterOptions, setFilterOptions] = useState([
         {
             type:'all',
@@ -44,7 +44,7 @@ function AllCars(){
     useEffect(() => {
         // const fetchCars = async () => {
         //     try{
-        //         const response = await fetch('https://car-dealer-api-2ie4.onrender.com/api/car')
+        //         const response = await fetch(`${import.meta.env.VITE_API_URL}/api/car`)
         //         const data = await response.json()
         //         if(response.ok){
         //             setCarListings(data)
@@ -75,7 +75,7 @@ function AllCars(){
     },[filterURL])
 
     const handleSetFilter = (filter) => {
-        setFilterURL(`https://car-dealer-api-2ie4.onrender.com/api/car/filter?q=${filter}`)
+        setFilterURL(`${import.meta.env.VITE_API_URL}/api/car/filter?q=${filter}`)
         console.log(filterURL)
         const updatedList = filterOptions.map((item) => {
             if(item.type === filter){
@@ -96,7 +96,7 @@ function AllCars(){
     }
 
     const handleSearchQuery = (search) => {
-        setFilterURL(`https://car-dealer-api-2ie4.onrender.com/api/car/search?q=${search}`)
+        setFilterURL(`${import.meta.env.VITE_API_URL}/api/car/search?q=${search}`)
     }
 
     return(

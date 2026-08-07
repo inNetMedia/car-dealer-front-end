@@ -25,7 +25,7 @@ function ViewCar(){
 
         const getListing = async () => {
             try{
-                const response = await fetch(`https://car-dealer-api-2ie4.onrender.com/api/car/${parameter.id}`)
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/car/${parameter.id}`)
                 const data = await response.json()
                 if(response.ok){
                     console.log(data)
