@@ -76,7 +76,7 @@ function Contact(){
                         <div>
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116716.15724045568!2d29.3687057259869!3d-23.911597510342638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d8401183307b%3A0xa720ddd4b18e4df7!2sPolokwane!5e0!3m2!1sen!2sza!4v1786118559143!5m2!1sen!2sza" height="450" style={{border:0, display:'flex', width:'100%'}} allowFullscreen="" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
-                        <div className="mt-5  p-5 rounded-md border-1 border-gray-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] ">
+                        <div className="mt-5  p-5 rounded-md border-1 border-gray-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] bg-white">
                             <h1 className="font-bold text-2xl">Send Us a Message</h1>
                             <form className="[&_label]:block [&_label]:mt-2 [&_label]:font-semibold md:grid md:grid-cols-2 md:gap-4 [&_input]:bg-gray-300/75 [&_input]:w-full [&_input]:h-10 [&_input]:p-3 [&_input]:rounded-md ">
                                 <div>

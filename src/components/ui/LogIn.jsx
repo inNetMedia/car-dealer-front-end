@@ -9,6 +9,7 @@ function LogIn(){
     const [error, setError] = useState(false)
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [isLoading, setIsLoading] = useState(false)
 
     const isUserAdmin =  (role) => {
         if(role === 'user'){
@@ -18,9 +19,13 @@ function LogIn(){
         }
     }
 
+    useEffect(() => {
+        setIsLoading(false)
+    }, [reqError])
+
     const logInUser = async (e) => {
         e.preventDefault()
-        console.log('Is authorizing')
+        setIsLoading(true)
         const API_URL = `${import.meta.env.VITE_API_URL}/user/auth`
 
         const logReq = await apiRequest(API_URL, {
@@ -41,6 +46,7 @@ function LogIn(){
             localStorage.setItem('email', logReq.jsonData.email)
             localStorage.setItem('role', logReq.jsonData.role)
             isUserAdmin(logReq.jsonData.role)
+            setIsLoading(false)
         }
     }
 
@@ -63,7 +69,7 @@ function LogIn(){
             
                 { reqError && (<p className='text-red-500 mt-3 text-xs'>Enter correct email and password</p>)}
                 <div>
-                    <button onClick={logInUser} className="w-full mt-5 bg-gray-900 text-white py-2 rounded-md cursor-pointer hover:bg-gray-800" type="submit">Sign In</button>
+                    <button onClick={logInUser} className="w-full mt-5 bg-gray-900 text-white py-2 rounded-md cursor-pointer hover:bg-gray-800" type="submit">{ isLoading ? (<><i className="fa-solid fa-circle-notch mr-2 animate-spin"></i>Signing you in</>) : (<>Sign In</>)}</button>
                 </div>
             </div>
         </form>

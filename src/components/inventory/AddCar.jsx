@@ -8,6 +8,7 @@ function AddCar({ setShowForm }){
     const [posting, setPosting] = useState(false)
     const [images, setImages] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    const [buttonText, setButtonText] = useState('Add Car')
 
 
     function handleRemovePopUp(){
@@ -54,11 +55,13 @@ function AddCar({ setShowForm }){
                     body: JSON.stringify(payload)
                 })
                 const data = await response.json()
+                setButtonText('Uploaded')
                 console.log(data)
             }catch(err){
                 console.log(err)
             }finally{
                 setIsLoading(false)
+                window.location.reload()
             }
         }
 
@@ -226,7 +229,7 @@ function AddCar({ setShowForm }){
 
                     <div className="flex justify-end items-center my-8">
                         <button className="mr-4 bg-white border-1 border-gray-400 px-3 py-2 rounded-md cursor-pointer" onClick={handleRemovePopUp}>Cancel</button>
-                        <button className="bg-black text-white px-3 py-2 rounded-md font-bold cursor-pointer" type="submit">{ isLoading ? (<><i className="fa-solid fa-circle-notch animate-spin"></i> Uploading</>) : (<><i className="fa-regular fa-floppy-disk mr-2"></i>Add Car</>)}</button>
+                        <button className="bg-black text-white px-3 py-2 rounded-md font-bold cursor-pointer" type="submit">{ isLoading ? (<><i className="fa-solid fa-circle-notch animate-spin"></i> Uploading</>) : (<><i className="fa-regular fa-floppy-disk mr-2"></i>{buttonText}</>)}</button>
                     </div>
 
                 </form>

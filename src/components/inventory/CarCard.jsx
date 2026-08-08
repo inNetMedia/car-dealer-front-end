@@ -61,16 +61,22 @@ function CarCard({ brand, variant, model, year, price, thumbnail, id }){
     }, [])
 
     return(
-        <div onClick={() => navigate(`/car/${id}`)} className='mb-5 rounded-lg bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] cursor-pointer '>
-            <div>
-                <img className='rounded-t-lg w-full h-full object-cover' src={thumbnail}/>
+        <div onClick={() => navigate(`/car/${id}`)} className='max-h-100 h-120 pb-4 mb-5 rounded-lg bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] cursor-pointer flex flex-col overflow-hidden'>
+    
+            {/* THE FIX: Lock the wrapper's height and width */}
+            <div className="h-75 w-full shrink-0">
+                <img className='h-full w-full object-cover' src={thumbnail} alt={`${year} ${brand} ${model}`} />
             </div>
-            <div className='p-3'>
+
+            <div className='p-3 flex-1'>
                 <div className="flex justify-between">
                     <h1 className='font-bold text-xl inline'>R {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h1>
                     <span>
-                        { !isFavourite ? (<i onClick={(e) => handleAddLike(e)} className="fa-regular fa-heart cursor-pointer"></i>) : (<i onClick={(e) => handleAddLike(e)} className="fa-solid fa-heart text-red-400"></i>)}
-                        
+                        { !isFavourite ? (
+                            <i onClick={(e) => handleAddLike(e)} className="fa-regular fa-heart cursor-pointer"></i>
+                        ) : (
+                            <i onClick={(e) => handleAddLike(e)} className="fa-solid fa-heart text-red-400"></i>
+                        )}
                     </span>
                 </div>
                 <h3 className='font-bold'>{year} {brand} {model}</h3>
