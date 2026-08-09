@@ -1,6 +1,7 @@
 import CarCard from "./CarCard"
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import CardSkeleton from "../skeletons/CardSkeleton"
 
 function CardHolder({ listingType, listingDesc, filter }){
     const [listings, setListings] = useState([])
@@ -43,9 +44,13 @@ function CardHolder({ listingType, listingDesc, filter }){
         <section className="p-4 w-[100%dvw] flex justify-center">
             <div className="max-w-[1336px] w-full">
                 { isLoading ? (
-                    <h1>Loading...</h1>
+                    <section className="md:grid md:grid-cols-3 md:gap-2">   
+                        <CardSkeleton />
+                        <CardSkeleton />
+                        <CardSkeleton />
+                    </section> 
                 ) : (
-                    <>
+                    <>  
                         <div className="flex justify-between mb-4">
                             <div>
                                 <h1 className="font-semibold text-2xl">{listingType}</h1>

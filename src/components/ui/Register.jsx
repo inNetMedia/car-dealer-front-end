@@ -8,18 +8,23 @@ function Register(){
     const [confirmPwd, setConfirmPwd] = useState()
     const [error, setError] = useState(null)
     const [regSuccessful, setRegSuccessful] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleRegisterUser = async (e) => {
         e.preventDefault()
+        setIsLoading(true)
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(password !== confirmPwd){    
+            setIsLoading(false)
             return setError('Passwords should match')
         }
         if(!passwordRegex.test(password)){
+            setIsLoading(false)
             return setError('Password must be atleast 8 characters in length, contain number, symbol, uppercase and lowercase letter')
         }
         if(!emailRegex.test(email)){
+            setIsLoading(false)
             return setError('Enter a correct email')
         }
 
@@ -33,6 +38,9 @@ function Register(){
                     })
         if(regReq.response.ok){
             setRegSuccessful(true)
+            setIsLoading(false)
+        }else if(regReq.response.status === 209){
+            setError('Email already has an account')
         }
     }
 
@@ -59,7 +67,7 @@ function Register(){
                     { error && (<p className='text-xs text-red-600 mt-4'>{error}</p>)}
 
                     <div>
-                        <button onClick={handleRegisterUser} className="w-full mt-5 bg-gray-900 text-white py-2 rounded-md" type="submit">Create Account</button>
+                        <button onClick={handleRegisterUser} className="w-full mt-5 bg-gray-900 text-white py-2 rounded-md" type="submit">{ isLoading ? (<><i className="fa-solid fa-circle-notch mr-2 animate-spin"></i>Creating account</>): (<>Create Account</>)}</button>
                     </div>
                 </>
                 )}

@@ -3,10 +3,12 @@ import { useEffect, useState } from "react"
 import { useContext } from "react"
 import { DataContext } from "../context/DataContext"
 import LogReg from "../components/inventory/LogReg"
+import CardSkeleton from "../components/skeletons/CardSkeleton"
 
 function AllCars(){
     const { showLogIn } = useContext(DataContext)
     const [carListings, setCarListings] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     const [filterURL, setFilterURL] = useState(`${import.meta.env.VITE_API_URL}/api/car/filter?q=all`)
     const [filterOptions, setFilterOptions] = useState([
         {
@@ -54,24 +56,24 @@ function AllCars(){
         //         console.log(err)
         //     }
         // }
-
         const filterListings = async () => {
-            console.log(filterURL)
+            setIsLoading(true)
             try{
                 const response = await fetch(filterURL)
                 const data = await response.json()
                 if(response.ok){
                     setCarListings(data)
+                    setIsLoading(false)
                 }
                 console.log(data)
             }catch(err){
+                setIsLoading(false)
                 console.log(err)
             }
         }
 
         //fetchCars()
         filterListings()
-        console.log('fetching cars')
     },[filterURL])
 
     const handleSetFilter = (filter) => {
@@ -141,8 +143,8 @@ function AllCars(){
                     { filterOptions.map((filter) => (<span className="mb-5" key={filter.type} onClick={() => handleSetFilter(filter.type)} style={ filter.selected ? {backgroundColor: 'black', color: 'white', borderRadius: '5px' } : { backgroundColor:'transparent', color: 'black'}}>{filter.type}</span>)) }
                 </div>
 
-                <main style={ !carListings.length ? { display: 'flex'} : { display: 'grid' }} className="p-5 md:grid md:grid-cols-3 md:gap-5 w-full items-center max-w-[1336px]">
-                    { !carListings.length ? (<h1 className="text-center font-bold text-3xl my-15">Listings not found</h1>) : carListings.map((list) => (<CarCard key={list._id} brand={list.brand} price={list.price} variant={list.variant} year={list.year} model={list.model} thumbnail={list.images[0]} id={list._id} />))}
+                <main style={ isLoading ? { display: 'grid' } : !carListings.length ? { display: 'flex'} :  { display: 'grid' }} className="p-5 md:grid md:grid-cols-3 md:gap-5 w-full items-center max-w-[1336px]">
+                    { isLoading ? (<><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /></>) : !carListings.length ? (<h1 className="text-center font-bold text-3xl my-15">Listings not available</h1>) : carListings.map((list) => (<CarCard key={list._id} brand={list.brand} price={list.price} variant={list.variant} year={list.year} model={list.model} thumbnail={list.images[0]} id={list._id} />))}
                 </main>
             </div>
         </section>
