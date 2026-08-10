@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useContext } from 'react'
 import LogReg from '../components/inventory/LogReg';
 import { DataContext } from '../context/DataContext';
+import ViewSkeleton from '../components/skeletons/ViewSkeleton';
 
 function ViewCar(){
     const navigate = useNavigate()
@@ -66,11 +67,12 @@ function ViewCar(){
 
     return(
         <main className='p-5 flex w-[100%] justify-center items-center'>
-            <div className='max-w-[1336px]'>
+            <div className='md:max-w-[1336px]'>
                 { viewFull && (<div className='bg-black fixed top-0 bottom-0 right-0 left-0 z-100 flex items-center justify-center'>
                     <i onClick={() => setViewFull(false)} className="cursor-pointer fa-solid fa-xmark absolute top-3 text-white text-5xl right-5"></i>
                     <i onClick={() => scrollFullView('decending')} className="fa-solid fa-chevron-left text-white absolute text-6xl left-5 cursor-pointer"></i>
                     <img src={viewImage}/>
+                    <span className='absolute bottom-20 text-white'>{carListing.images.indexOf(viewImage)+1}/{carListing.images.length}</span>
                     <i onClick={() => scrollFullView('acending')} className="fa-solid fa-chevron-right text-white absolute right-5 text-6xl cursor-pointer"></i>
                 </div>)}
 
@@ -78,22 +80,22 @@ function ViewCar(){
                 <button onClick={handleBack} className='mb-8 cursor-pointer'>
                     <i className="fa-solid fa-arrow-left mr-3"></i>Back 
                 </button>
-                { isLoading ? (<h1>Loading...</h1>) : 
-                    <div className='flex md:flex-row flex-col md:items-center md:gap-4'>
-                        <div className='md:flex md:flex-col md:flex-[60%]'>
-                            <div className='mb-5'>
-                                <img onClick={() => setViewFull(true)} src={viewImage} className='rounded-md object-cover cursor-pointer'/>
+                { isLoading ? (<ViewSkeleton />) : 
+                    <div className='flex lg:flex-row flex-col lg:items-start justify-center lg:gap-4 max-w-[800px] lg:max-w-full'>
+                        <div className='md:flex md:flex-col max-w-170'>
+                            <div className='mb-5 flex justify-center w-full  md:h-130 h-90'>
+                                <img onClick={() => setViewFull(true)} src={viewImage} className='rounded-md object-cover cursor-pointer w-full h-full '/>
                             </div>
-                            <div className='flex gap-1 [&_img]:rounded-md mb-2 overflow-auto'>
+                            <div className='flex gap-1 [&_img]:rounded-md mb-2 overflow-auto lg:overflow-clip'>
                                 { carListing.images.map((image) => (<img onClick={() => setViewImage(image)} className='size-20 object-cover cursor-pointer' src={image} />))}
                             </div>
                         </div>
 
-                        <section className='md:flex md:flex-col md:flex-[40%]'>
+                        <section className='md:flex md:flex-col md:flex-[40%] md:min-w-100 max-w-170'>
                             <div>
                                 <h1 className='font-bold text-xl'>R {carListing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h1>
-                                <h1 className='font-bold text-xl'>{carListing.year} {carListing.brand} {carListing.model} {carListing.variant}</h1>
-                                <span>2.0TSI 140kW 4Motion Design</span>
+                                <h1 className='font-bold text-xl'>{carListing.year} {carListing.brand} {carListing.model}</h1>
+                                <span>{carListing.variant}</span>
                             </div>
 
                             <div className='[&_span]:text-gray-600 bg-white rounded-md p-4 mt-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]'>
