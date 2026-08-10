@@ -58,7 +58,7 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
 
             </>) }
 
-            {   width > 360 && (<>
+            {   width > 430 && (<>
                 <div className='flex flex-[20%]  items-center md:font-semibold md:text-md text-sm'>
                     R {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
                 </div>
