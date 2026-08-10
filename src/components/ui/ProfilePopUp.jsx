@@ -17,17 +17,15 @@ const ProfilePopUp = () => {
                 credentials: 'include'
             })
             console.log(response)
-            if(response.ok){
-                localStorage.removeItem('id')
-                localStorage.removeItem('role')
-                localStorage.removeItem('username')
-                localStorage.removeItem('email')
-                navigate('/')
-                window.location.reload()
-            }
-
         }catch(err){
             console.log(err)
+        }finally{
+            localStorage.removeItem('id')
+            localStorage.removeItem('role')
+            localStorage.removeItem('username')
+            localStorage.removeItem('email')
+            navigate('/')
+            window.location.reload()
         }
     }
 
