@@ -37,8 +37,8 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
 
     return(
         <div className=' p-2 flex gap-4 border-b-1 border-gray-400 [&_img]:h-full px-4 h-18 md:text-lg'>
-            <div className='flex flex-[40%] items-center md:mr-10'>
-                <div className='flex mr-2'><img className='max-h-14 object-cover' src={thumbnail} /></div>
+            <div className='flex flex-[50%] items-center md:mr-10 flex-grow'>
+                <div className='flex mr-2 max-h-14 w-20'><img className='max-h-14 object-cover w-full' src={thumbnail} /></div>
                 <div className='flex flex-[10%]'>
                     <h1 className='font- md:font-semibold text-xs md:text-lg'>{brand} {model} {variant}</h1>
                 </div>
@@ -58,10 +58,12 @@ function AdminList( { brand, price, year, model, variant, thumbnail, id, sold, s
 
             </>) }
 
-            <div className='flex flex-[20%]  items-center font-semibold text-'>
-                R {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
-            </div>
-            
+            {   width > 360 && (<>
+                <div className='flex flex-[20%]  items-center md:font-semibold md:text-md text-sm'>
+                    R {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                </div>
+            </>)}
+
             <div className='flex justify-start items-center text-lg md:text-1xl flex-[20%]'>
                 { !sold ? (<i onClick={handleSellCar} className="fa-regular fa-calendar-check"></i>) : (<i onClick={handleSellCar} className="fa-solid fa-arrow-rotate-left"></i>)}
                 <i onClick={() => { setShowEditListing(true); setListingId(id) }} className="fa-regular fa-pen-to-square m-4 md:mx-8"></i>

@@ -99,7 +99,7 @@ function AddCar({ setShowForm }){
 
     return(
         <section className="fixed top-0 bottom-0 left-0 right-0 bg-gray-600/40 z-11 flex justify-center items-center">
-            <div className="bg-white w-[90%] z-12 px-5 max-h-[80%] overflow-y-scroll relative">
+            <div className="bg-white w-[90%] z-12 px-5 max-h-[80%] overflow-y-scroll relative max-w-[1336px]">
                 <div className="flex justify-between left-0 right-0 top-0 bg-white items-center sticky p-3">       
                     <h1 className="font-bold text-xl sticky">Add New Car</h1>
                     <i onClick={handleRemovePopUp} className="fa-solid fa-xmark cursor-pointer text-red-600"></i>

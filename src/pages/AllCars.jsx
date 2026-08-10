@@ -32,9 +32,9 @@ function AllCars(){
             value: 'sports'
         },
         {
-            type:'Luxury',
+            type:'Bakkie',
             selected: false,
-            value: 'luxury'
+            value: 'bakkie'
         },
         {
             type: 'Hatchback',
@@ -144,7 +144,7 @@ function AllCars(){
                 </div>
 
                 <main style={ isLoading ? { display: 'grid' } : !carListings.length ? { display: 'flex'} :  { display: 'grid' }} className="p-5 md:grid md:grid-cols-3 md:gap-5 w-full items-center max-w-[1336px]">
-                    { isLoading ? (<><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /></>) : !carListings.length ? (<h1 className="text-center font-bold text-3xl my-15">Listings not available</h1>) : carListings.map((list) => (<CarCard key={list._id} brand={list.brand} price={list.price} variant={list.variant} year={list.year} model={list.model} thumbnail={list.images[0]} id={list._id} />))}
+                    { isLoading ? (<><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /><CardSkeleton /></>) : !carListings.length ? (<h1 className="text-center font-bold text-3xl my-15">Listings not available</h1>) : carListings.map((list) => (<CarCard key={list._id} brand={list.brand} price={list.price} variant={list.variant} year={list.year} model={list.model} thumbnail={list.images[0]} id={list._id} latest={list.latest} />))}
                 </main>
             </div>
         </section>

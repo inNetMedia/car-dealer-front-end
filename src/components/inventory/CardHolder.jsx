@@ -57,11 +57,11 @@ function CardHolder({ listingType, listingDesc, filter }){
                                 <span className="text-gray-500 text-sm">{listingDesc}</span>
                             </div>
                             <div>
-                                <button className="border border-gray-400/50 p-3 active:bg-black/65 text-sm rounded-md cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out" onClick={navigateToCars}>View All<i className="fa-solid fa-arrow-right ml-3"></i></button>
+                                <button className="border border-gray-400/50 p-3 active:bg-black/65 text-sm rounded-md cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out bg-white font-semibold" onClick={navigateToCars}>View All<i className="fa-solid fa-arrow-right ml-3"></i></button>
                             </div>
                         </div>
                         <section className="md:grid md:grid-cols-3 md:gap-2">
-                            { !listings.length ? (<h1>{listingType} listing not available</h1>) : (listings.map((list) => (<CarCard key={list._id} thumbnail={list.images[0]} brand={list.brand} model={list.model} price={list.price} variant={list.variant} id={list._id} year={list.year} />)))}
+                            { !listings.length ? (<h1>{listingType} listing not available</h1>) : (listings.map((list) => (<CarCard key={list._id} thumbnail={list.images[0]} brand={list.brand} model={list.model} price={list.price} variant={list.variant} id={list._id} year={list.year} latest={list.latest} />)))}
                         </section>
                     </>
                 )}

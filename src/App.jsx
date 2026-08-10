@@ -13,14 +13,17 @@ import Footer from './components/layout/Footer'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import { DataProvider } from "./context/DataContext"
+import ProtectedRoutes from './components/inventory/ProtectedRoutes'
 
 function App() {
   return (
-   <main className='bg-gray-200 min-h-screen flex flex-col'>
+   <main className='bg-gray-200/50 min-h-screen flex flex-col'>
       <DataProvider>
       <Navbar />
       <Routes>
-        <Route element={<Admin />} path='/admin' />
+        <Route element={<ProtectedRoutes />}>
+          <Route element={<Admin />} path='/admin' />
+        </Route>
         <Route element={<Home />} path='/' />
         <Route element={<ViewCar />} exact path='/car/:id' />
         <Route element={<AllCars />} path='/cars' />

@@ -18,7 +18,7 @@ function Home(){
             <CardHolder listingType="Just Arrived" listingDesc="Latest handpicked and tested" filter={0}/>
             <SellHero />
             <CardHolder listingType="Recommended" listingDesc="Hand-picked premium vehicles" filter={3}/>
-            <CustStories />
+            {/* <CustStories /> */}
         </main>
     )
 }
