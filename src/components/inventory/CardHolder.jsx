@@ -42,7 +42,7 @@ function CardHolder({ listingType, listingDesc, filter }){
     return(
         
         <section className="p-4 w-[100%dvw] flex justify-center">
-            <div className="max-w-[1336px] w-full">
+            <div className=" md:max-w-[1336px] w-full">
                 { isLoading ? (
                     <section className="md:grid md:grid-cols-3 md:gap-2">   
                         <CardSkeleton />

@@ -64,7 +64,7 @@ function CarCard({ brand, variant, model, year, price, thumbnail, id }){
         <div onClick={() => navigate(`/car/${id}`)} className='max-h-100 h-120 pb-4 mb-5 rounded-lg bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] cursor-pointer flex flex-col overflow-hidden'>
     
             {/* THE FIX: Lock the wrapper's height and width */}
-            <div className="h-75 w-full shrink-0">
+            <div className="h-[80%] w-full shrink-0">
                 <img className='h-full w-full object-cover' src={thumbnail} alt={`${year} ${brand} ${model}`} />
             </div>
 
