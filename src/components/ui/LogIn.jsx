@@ -65,7 +65,7 @@ function LogIn(){
                 <label htmlFor="email">Email</label>
                 <input onChange={(e) => getEmail(e)} type="email" placeholder="you@example.com" required id="email"/>
                 <label htmlFor="password"  id="password">Password</label>
-                <input onChange={(e) => getPassword(e)} id="password" placeholder="•••••" required  />
+                <input onChange={(e) => getPassword(e)} id="password" placeholder="•••••" required type='password' />
             
                 { reqError && (<p className='text-red-500 mt-3 text-xs'>Enter correct email and password</p>)}
                 <div>

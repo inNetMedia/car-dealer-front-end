@@ -34,7 +34,8 @@ function Admin(){
     }
 
     const handleFeaturedListing = (data) => {
-        const featuredList = data.map((item) => item.featured === false)
+        const featuredList = data.filter((item) => item.featured === true)
+        console.log(featuredList)
         setFeatured(featuredList.length)
     }
 

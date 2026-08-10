@@ -5,10 +5,12 @@ import NavLaptop from '../ui/NavLaptop'
 import NavMobile from '../ui/NavMobile'
 import NavTablet from '../ui/NavTablet'
 import ShowMore from '../ui/ShowMore'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const { windowSize, showNav, setShowLogIn } = useContext(DataContext)
     const width = windowSize?.width ?? 0
+    const navigate = useNavigate()
 
     function showRgLog(){
         setShowLogIn(true)
@@ -17,7 +19,7 @@ const Navbar = () => {
     return(
         <>
             <header className="flex justify-between p-5 items-center sticky top-0 bg-white z-10">
-                <div>
+                <div onClick={() => navigate('/')} className='cursor-pointer'>
                     <i className="fa-solid fa-car-side text-2xl"></i>
                     <h1 className="inline font-bold ml-2 text-2xl">Motors</h1>
                 </div>
