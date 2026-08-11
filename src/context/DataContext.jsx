@@ -18,6 +18,7 @@ export const DataProvider = ({ children }) => {
     const [isProfileView, setIsProfileView] = useState(false)
     const [showProfile, setShowProfile] = useState(false)
     const [showEditListing, setShowEditListing] = useState(false)
+    const whatsappContact = '27694171544'
 
     function handleShowNavigation(){
         setShowNav(!showNav)
@@ -39,7 +40,7 @@ export const DataProvider = ({ children }) => {
             setReqError, setIsLoggedIn, setIsAdmin,
             setIsProfileView, isProfileView, isAdmin,
             setShowProfile, showProfile, showEditListing,
-            setShowEditListing
+            setShowEditListing, whatsappContact
         }}>
             {children}
         </DataContext.Provider>

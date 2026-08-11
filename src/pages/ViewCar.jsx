@@ -1,4 +1,4 @@
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useNavigate, useLocation, useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useContext } from 'react'
 import LogReg from '../components/inventory/LogReg';
@@ -6,6 +6,7 @@ import { DataContext } from '../context/DataContext';
 import ViewSkeleton from '../components/skeletons/ViewSkeleton';
 
 function ViewCar(){
+    const { whatsappContact } = useContext(DataContext)
     const navigate = useNavigate()
     const location = useLocation()
     const parameter = useParams()
@@ -121,6 +122,16 @@ function ViewCar(){
                                         <span> Year</span>
                                         <h2 className='font-bold'>{carListing.year}</h2>
                                     </div>
+                                    <div>
+                                        <i className="fa-solid fa-truck-monster"></i>
+                                        <span> Drive Train</span>
+                                        <h2 className='font-bold'>{carListing.specs.handling.driveTrain}</h2>
+                                    </div>
+                                    <div>
+                                        <i className="fa-solid fa-gauge-simple-high"></i>
+                                        <span> Fuel Consumption</span>
+                                        <h2 className='font-bold'>{carListing.specs.engine.fuelConsumption} l/100km</h2>
+                                    </div>
                                 </div>
                             </div>
 
@@ -129,15 +140,12 @@ function ViewCar(){
                                 <p className='text-sm text-gray-600'>{carListing.description}</p>
                                 <h1 className="font-bold mt-5">Features</h1>
                                 <ul className="grid grid-cols-2 list-disc list-inside space-y-1 [&_li]:text-xs">
-                                    <li>Twin-Turbo</li>
-                                    <li>Carbon-Fiber Roof</li>
-                                    <li>19' Alloy Wheels</li>
-                                    <li>Leather Seats</li>
+                                    { carListing.features.map((feature) => (<li>{feature}</li>)) }
                                 </ul>
                             </div>
-                            <div className='flex flex-col mt-5'>
-                                <button className='bg-black text-white p-1 rounded-md mb-2 cursor-pointer'><i className="fa-solid fa-phone"></i> Call</button>
-                                <button className='p-1 bg-green-400 rounded-md cursor-pointer'><i className="fa-brands fa-whatsapp"></i> WhatsApp</button>
+                            <div className='flex flex-col mt-5 text-center'>
+                                <Link to={`tel:${whatsappContact}`} className='bg-black text-white mb-2 rounded-md p-1 cursor-pointer'><i className="fa-solid fa-phone"></i> Call</Link>
+                                <Link to={`https://wa.me/${whatsappContact}?text=Hi, I'm interested in ${carListing.year} ${carListing.brand} ${carListing.model}. Is it still available?`} className='p-1 bg-green-400 rounded-md cursor-pointer' rel='noopener noreferrer' target="_blank" ><i className="fa-brands fa-whatsapp"></i> WhatsApp</Link>
                             </div>
                         </section>
                     </div>

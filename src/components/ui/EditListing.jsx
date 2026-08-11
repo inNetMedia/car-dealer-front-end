@@ -178,7 +178,7 @@ function EditListing({ setShowForm, listingId }){
 
                             <div>
                                 <label htmlFor="features">Features* <span className="text-red-400">(comma-separated)</span></label>
-                                <input value={listingInfo.features.join(" ")} autoComplete="false" onChange={(e) => handleTextChange(e)} name="features" type="text" id="features" placeholder="e.g Twin-Turbo Engine, Carbon Roof, Premium Sound" />
+                                <input value={listingInfo.features} autoComplete="false" onChange={(e) => handleTextChange(e)} name="features" type="text" id="features" placeholder="e.g Twin-Turbo Engine, Carbon Roof, Premium Sound" />
                             </div>
 
                             <div>

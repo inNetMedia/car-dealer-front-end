@@ -4,8 +4,10 @@ import LogReg from "../components/inventory/LogReg"
 import { Link } from "react-router-dom"
 
 function Contact(){
-    const { showLogIn } = useContext(DataContext)
+    const { showLogIn, whatsappContact } = useContext(DataContext)
     const [message, setMessage] = useState()
+    const [name, setName] = useState()
+    const [subject, setSubject] = useState()
     const whatsappUrl = `https://wa.me/271234567896?text=${message}`
 
     return(
@@ -78,23 +80,23 @@ function Contact(){
                         </div>
                         <div className="mt-5  p-5 rounded-md border-1 border-gray-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] bg-white">
                             <h1 className="font-bold text-2xl">Send Us a Message</h1>
-                            <form className="[&_label]:block [&_label]:mt-2 [&_label]:font-semibold md:grid md:grid-cols-2 md:gap-4 [&_input]:bg-gray-300/75 [&_input]:w-full [&_input]:h-10 [&_input]:p-3 [&_input]:rounded-md ">
+                            <form className="[&_label]:block [&_label]:mt-2 [&_label]:font-semibold md:grid md:grid-cols-2 md:gap-4 [&_input]:bg-gray-300/75 [&_input]:w-full [&_input]:h-10 [&_input]:p-3 [&_input]:rounded-md bg-white">
                                 <div>
                                     <label>Full Name*</label>
-                                    <input required placeholder="John Smith" />
+                                    <input onChange={(e) => setName(e.target.value)} required placeholder="John Smith" />
                                 </div>
 
                                 <div>
                                     <label>Subject*</label>
-                                    <input required placeholder="e.g General Enquiry" />
+                                    <input onChange={(e) => setSubject(e.target.value)} required placeholder="e.g General Enquiry" />
                                 </div>
                                 <div>
                                     <label>Message*</label>
-                                    <textarea className="w-full h-30 border-1 border-gray-400 rounded-md p-2" required placeholder="How can we help you?" ></textarea>
+                                    <textarea onChange={(e) => setMessage(e.target.value)} className="w-full h-30 border-1 border-gray-400 rounded-md p-2" required placeholder="How can we help you?" ></textarea>
                             
                                     <div className="flex items-end w-full">
                                         <Link 
-                                            to={whatsappUrl} 
+                                            to={`https://wa.me/${whatsappContact}?text=${subject}, ${message} regards ${name}`}
                                             target="_blank" 
                                             rel="noopener noreferrer"
                                             className="mt-4 bg-black text-white py-3 px-6 rounded-lg flex items-center justify-center font-semibold hover:bg-black/80 transition-colors"
