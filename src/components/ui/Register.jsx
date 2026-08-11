@@ -36,17 +36,20 @@ function Register(){
                         },
                         body: JSON.stringify({ username, email, password })
                     })
-        if(regReq.response.ok){
+        const response = regReq.response ?? regReq
+        if(response.ok){
             setRegSuccessful(true)
             setIsLoading(false)
-        }else if(regReq.response.status === 409){
-            setError('Email already has an account')
-        }else{
-            setError('There was a problem creating your account, please try again later')
+            return
         }
-
-
+        if(response.status === 409){
+            setError('Email already has an account')
+            setIsLoading(false)
+            return
+        }
+        setError('There was a problem creating your account, please try again later')
         setIsLoading(false)
+        
     }
 
     return(
