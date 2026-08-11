@@ -127,12 +127,12 @@ function EditListing({ setShowForm, listingId }){
 
                             <div>
                                 <label htmlFor="doors">Number of Doors*</label>
-                                <input value={listingInfo.specs.comfort.doors} autoComplete="false" onChange={(e) => handleTextChange(e)} name="doors" type="number" id="doors" required />
+                                <input value={listingInfo.specs.comfort.doors} autoComplete="false" onChange={(e) => handleTextChange(e)} maxLength="2" name="doors" type="number" id="doors" required />
                             </div>
 
                             <div>
                                 <label htmlFor="seats">Number of Seats*</label>
-                                <input value={listingInfo.specs.comfort.seats} autoComplete="false" onChange={(e) => handleTextChange(e)} name="seats" type="number" id="seats" required />
+                                <input value={listingInfo.specs.comfort.seats} autoComplete="false" onChange={(e) => handleTextChange(e)} maxLength="2" name="seats" type="number" id="seats" required />
                             </div>
 
                             <div>
@@ -157,12 +157,12 @@ function EditListing({ setShowForm, listingId }){
 
                             <div>
                                 <label htmlFor="fuelCapacity">Fuel Capacity*</label>
-                                <input value={listingInfo.specs.engine.fuelCapacity} autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelCapacity" type="number" id="fuelCapacity" required />
+                                <input step="0.01" value={listingInfo.specs.engine.fuelCapacity} autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelCapacity" type="number" id="fuelCapacity" required />
                             </div>
 
                             <div>
                                 <label htmlFor="fuelConsumption">Fuel Consumption*</label>
-                                <input value={listingInfo.specs.engine.fuelConsumption} autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelConsumption" type="number" id="fuelConsumption" required />
+                                <input step="0.01" value={listingInfo.specs.engine.fuelConsumption} autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelConsumption" type="number" id="fuelConsumption" required />
                             </div>
 
                         

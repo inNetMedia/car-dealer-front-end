@@ -52,7 +52,7 @@ function SellCar(){
                 </section>
 
                 <section>
-                    <form onSubmit={(e) => submitOffer(e)} action="" className="[&_label]:block [&_label]:mt-5 [&_label]:font-bold [&_input]:bg-gray-300/75 [&_input]:w-full [&_input]:h-10 [&_input]:p-3 [&_input]:rounded-md [&_select]:w-full">
+                    <form onSubmit={(e) => submitOffer(e)} action="" className="[&_select]:w-full [&_select]:border-1 [&_select]:border-gray-400/75 [&_select]:rounded-md [&_select]:p-2  [&_label]:block [&_label]:mt-5 [&_label]:font-bold [&_input]:bg-gray-300/75 [&_input]:w-full [&_input]:h-10 [&_input]:p-3 [&_input]:rounded-md [&_select]:w-full">
                         
                         <div className="bg-white p-3 rounded-md shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:p-10">
                             <h1 className="font-bold text-2xl">Car Details</h1>
@@ -73,7 +73,7 @@ function SellCar(){
                                     <input onChange={(e) => handleTextChange(e)} name="model" type="text" placeholder="e.g 3 Series, A4, Model S" required id="model"/>
 
                                     <label htmlFor="year">Year*</label>
-                                    <input onChange={(e) => handleTextChange(e)} name="year" type="number" value={new Date().getFullYear()} required placeholder="e.g 2020" id="year"/>
+                                    <input onChange={(e) => handleTextChange(e)} name="year" type="number" maxLength="4" required placeholder="e.g 2020" id="year"/>
 
                                     <label htmlFor="transmission">Transmision</label>
                                     <select onChange={(e) => handleTextChange(e)} name="transmission" id="transmission" required>

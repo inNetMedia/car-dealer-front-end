@@ -150,12 +150,12 @@ function AddCar({ setShowForm }){
 
                         <div>
                             <label htmlFor="doors">Number of Doors*</label>
-                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="doors" type="number" id="doors" required />
+                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="doors" type="number" id="doors" required maxLength="1" />
                         </div>
 
                         <div>
                             <label htmlFor="seats">Number of Seats*</label>
-                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="seats" type="number" id="seats" required />
+                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="seats" type="number" id="seats" required  maxLength="2"/>
                         </div>
 
                         <div>
@@ -180,12 +180,12 @@ function AddCar({ setShowForm }){
 
                         <div>
                             <label htmlFor="fuelCapacity">Fuel Capacity*</label>
-                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelCapacity" type="number" id="fuelCapacity" required />
+                            <input step="0.01" autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelCapacity" type="number" id="fuelCapacity" required />
                         </div>
 
                         <div>
                             <label htmlFor="fuelConsumption">Fuel Consumption*</label>
-                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelConsumption" type="number" id="fuelConsumption" required />
+                            <input step="0.01" autoComplete="false" onChange={(e) => handleTextChange(e)} name="fuelConsumption" type="number" id="fuelConsumption" required />
                         </div>
 
                     
@@ -199,7 +199,7 @@ function AddCar({ setShowForm }){
                         </div>
                         
                         <div>
-                            <label htmlFor="images">Images*</label>
+                            <label htmlFor="images">Images* (Maximum 15)</label>
                             <input autoComplete="false" className="cursor-pointer" onChange={(e) => handleAddImages(e)} name="images" type="file" id="images" required accept="images/*" multiple/>
                         </div>
 
