@@ -39,9 +39,14 @@ function Register(){
         if(regReq.response.ok){
             setRegSuccessful(true)
             setIsLoading(false)
-        }else if(regReq.response.status === 209){
+        }else if(regReq.response.status === 409){
             setError('Email already has an account')
+        }else{
+            setError('There was a problem creating your account, please try again later')
         }
+
+
+        setIsLoading(false)
     }
 
     return(
