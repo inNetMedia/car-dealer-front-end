@@ -3,7 +3,7 @@
 A high-performance, responsive web application for automotive dealerships built with **React** and styled with **Tailwind CSS**. Designed to deliver an intuitive inventory browsing experience with dedicated vehicle filtering, responsive media galleries, and an administrative management portal.
 
 🔗 **Live Application:** [View Live Demo](https://car-dealer-front-end.vercel.app/)  
-🔗 **Backend Repository:** [AutoDealer API](https://github.com/yourusername/car-dealer-backend)
+🔗 **Backend Repository:** [AutoDealer API](https://github.com/inNetMedia/car-dealer-api.git)
 
 ---
 
@@ -37,8 +37,7 @@ A high-performance, responsive web application for automotive dealerships built 
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/inNetMedia/car-dealer-front-end.git](https://github.com/inNetMedia/car-dealer-front-end.git)
-   cd car-dealer-frontend
+   git clone https://github.com/inNetMedia/car-dealer-front-end.git
 
 2. **Clone the repository:**
     ```bash
