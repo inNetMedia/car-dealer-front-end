@@ -104,8 +104,8 @@ function AllCars(){
     return(
         <section>
             { showLogIn && (<LogReg />)}
-            <div className="bg-black text-white p-8 flex-1 w-[100%] justify-center">
-                <div className="max-w-[1336px]">
+            <div className="bg-black w-full flex justify-center p-8 text-white">
+                <div className="w-full max-w-[1336px]">
                     <h1 className="font-bold text-4xl mb-5">Our Fleet</h1>
                     <p>Every vehicle in our showroom -- hand-picked, fully inspected, ready to drive.</p>
                 </div>
