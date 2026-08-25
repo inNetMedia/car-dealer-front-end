@@ -27,6 +27,7 @@ function MoreOpt( { carData, setCarData }){
                 <div id="position">
                     <label htmlFor="engine-position" className="block mt-5 font-semibold">Engine Position</label>
                     <select onChange={(e) => handleTextChange(e)} name="position" id="engine-position">
+                        <option>Select position</option>
                         <option value="front">Front</option>
                         <option value="middle">Middle</option>
                         <option value="back">Back</option>
@@ -46,6 +47,7 @@ function MoreOpt( { carData, setCarData }){
                 <div>
                     <label htmlFor="cylinder-layout" className="block mt-5 font-semibold">Cylinder Layout</label>
                     <select onChange={(e) => handleTextChange(e)} name="cylinderLayout" id="cylinder-layout">
+                        <option>Select Layout</option>
                         <option value="Inline">Inline /Straight (I)</option>
                         <option value="V-engine">V-Engine</option>
                         <option value="Boxer/flat">Boxer /Flat(H)</option>
@@ -82,6 +84,7 @@ function MoreOpt( { carData, setCarData }){
                     <div>
                         <label htmlFor="lampTech" className="block mt-5 font-semibold">Lamp Technology</label>
                         <select onChange={(e) => handleTextChange(e)} name="lampTech" id="lampTech">
+                            <option>Select Lamp Tech</option>
                             <option value="LED">LED</option>
                             <option value="Xenon">Xenon / HID</option>
                             <option value="Halogen">Halogen</option>

@@ -105,7 +105,7 @@ function EditListing({ setShowForm, listingId }){
 
                             <div>
                                 <label htmlFor="price">Price (R)*</label>
-                                <input value={listingInfo.price} autoComplete="false" onChange={(e) => handleTextChange(e)} name="price" type="number" required id="price" maxLength="6" required/>
+                                <input value={listingInfo.price} autoComplete="false" onChange={(e) => handleTextChange(e)} name="price" type="number" required id="price" maxLength="6"/>
                             </div>
 
                             <div>
@@ -121,7 +121,10 @@ function EditListing({ setShowForm, listingId }){
                                     <option value="Sedan">Sedan</option>
                                     <option value="Bakkie">Bakkie</option>
                                     <option value="SUV">SUV</option>
-                                    <option value="Sports">Sports</option>
+                                    <option value="Station Wagon">Station Wagon</option>
+                                    <option value="Micro Car">Micro Car</option>
+                                    <option value="Coupe">Coupe</option>
+                                    <option value="Mini Van">Mini Van</option>
                                 </select>
                             </div>
 
@@ -152,6 +155,7 @@ function EditListing({ setShowForm, listingId }){
                                     <option>Select Fuel Type</option>
                                     <option value="petrol">Petrol</option>
                                     <option value="diesel">Diesel</option>
+                                    <option value="hybrid">Hybrid</option>
                                 </select>
                             </div>
 

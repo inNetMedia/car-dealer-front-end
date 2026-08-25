@@ -7,8 +7,8 @@ import LogReg from "../components/inventory/LogReg"
 import EditListing from '../components/ui/EditListing'
 
 function Admin(){
-    const { windowSize, showNav, changeListState, showLogIn,  showEditListing,  setShowEditListing } = useContext(DataContext)
-    const width = windowSize?.width ?? 0
+    const { windowSize, showLogIn,  showEditListing } = useContext(DataContext)
+    //const width = windowSize?.width ?? 0
 
     const [showForm, setShowForm] = useState(false)
     const [showSold, setShowSold] = useState(false)
@@ -174,7 +174,6 @@ function Admin(){
                             refreshListings={refreshListings} 
                             setShowForm={setShowForm} 
                             setIsUpdating={setIsUpdating} 
-                            setListingId={setListingId} 
                             category={list.category} 
                             mileage={list.mileage} 
                             transmission={list.specs.transmission} 

@@ -107,7 +107,7 @@ function AllCars(){
             <div className="bg-black w-full flex justify-center p-8 text-white">
                 <div className="w-full max-w-[1336px]">
                     <h1 className="font-bold text-4xl mb-5">Our Fleet</h1>
-                    <p>Every vehicle in our showroom -- hand-picked, fully inspected, ready to drive.</p>
+                    <p>Every vehicle in our showroom — hand-picked, fully inspected, ready to drive.</p>
                 </div>
             </div>
             <div className="flex justify-center mt-5 mb-5">
@@ -131,7 +131,7 @@ function AllCars(){
                 <div className="m-5 p-3 items-center inline border border-gray-400/50 w-full max-w-[1336px]">
                     <i className="fa-solid fa-sliders mr-2"></i>
                     <select onChange={(e) => handleSetFilter(e.target.value)} name="Sort">
-                        <option disabled>Filter results</option>
+                        <option>Filter results</option>
                         <option value="dyear">Newest First</option>
                         <option value="year">Oldest</option>
                         <option value="mileage">Least Milage</option>

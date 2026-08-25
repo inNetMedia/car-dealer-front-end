@@ -128,7 +128,7 @@ function AddCar({ setShowForm }){
 
                         <div>
                             <label htmlFor="price">Price (R)*</label>
-                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="price" type="number" required id="price" maxLength="6" required/>
+                            <input autoComplete="false" onChange={(e) => handleTextChange(e)} name="price" type="number" required id="price" maxLength="6" />
                         </div>
 
                         <div>
@@ -144,7 +144,11 @@ function AddCar({ setShowForm }){
                                 <option value="Sedan">Sedan</option>
                                 <option value="Bakkie">Bakkie</option>
                                 <option value="SUV">SUV</option>
-                                <option value="Sports">Sports</option>
+                                <option value="Mini Van">Mini Van</option>
+                                <option value="Micro Car">Micro Car</option>
+                                <option value="Convertible">Convertible</option>
+                                <option value="Coupe">Coupe</option>
+                                <option value="Station Wagon">Station Wagon</option>
                             </select>
                         </div>
 
@@ -175,6 +179,7 @@ function AddCar({ setShowForm }){
                                 <option>Select Fuel Type</option>
                                 <option value="petrol">Petrol</option>
                                 <option value="diesel">Diesel</option>
+                                <option value="hybrid">Hybrid</option>
                             </select>
                         </div>
 
