@@ -7,7 +7,7 @@ const ProtectedRoutes = () => {
         localStorage.removeItem('id')
         localStorage.removeItem('email')
         console.log('Not allowed')
-        return <Navigate to='/' replace/>
+        return <Navigate to='/missingpage' replace/>
     }
 
     return <Outlet />
