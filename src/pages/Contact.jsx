@@ -13,8 +13,8 @@ function Contact(){
     return(
         <section className="flex-1">
             { showLogIn && (<LogReg />)}
-            <div className="bg-black text-white p-5 py-10 flex justify-center">
-                <div className="max-w-[1336px] flex justify-start">
+            <div className="bg-black w-full flex justify-center p-8 text-white">
+                <div className="w-full max-w-[1336px]">
                     <p className="text-gray-400 text-sm font-semibold mb-2">WE'D LOVE TO HEAR FROM YOU</p>
                     <h1 className="font-bold text-4xl">Get In Touch</h1>
                 </div>
