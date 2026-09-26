@@ -20,8 +20,8 @@ const Navbar = () => {
         <>
             <header className="flex justify-between p-5 items-center sticky top-0 bg-white z-10">
                 <div onClick={() => navigate('/')} className='cursor-pointer'>
-                    <i className="fa-solid fa-car-side text-2xl"></i>
-                    <h1 className="inline font-bold ml-2 text-2xl">Motors</h1>
+                    
+                    <h1 className="inline font-bold ml-2 text-2xl tracking-normal"><span className='font-serif text-2xl'>N</span><span className='ml-[-6px] font-serif text-xl'>N</span> Motors</h1>
                 </div>
                 { width > 992 && (
                     <div className='[&_a]:m-5 [&_a]:hover:underline [&_a]:transition-text ease-in-out [&_a]:text-xl [&_a]:font-semibold'>

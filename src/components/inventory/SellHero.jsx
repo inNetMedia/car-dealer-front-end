@@ -8,7 +8,7 @@ function SellHero(){
     }
 
     return(
-        <section className="flex justify-center items-center my-4 text-white">
+        <section className="flex justify-center items-center my-20 text-white">
              <div className="bg-[url('/tyler-clemmensen-uZk1Kk92Xww-unsplash.jpg')] bg-cover bg-center h-100 w-[95dvw] max-w-[1336px]">
                 <div className="w-full h-full bg-black/60 p-8">
                     <span className="bg-gray-800 p-2 rounded-full text-sm">Sell with NN Motors</span>
